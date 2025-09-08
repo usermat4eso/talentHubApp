@@ -16,7 +16,13 @@ type SessionReport = {
   cycles: { name: string };
 };
 
-export default function ReportPage({ params }: { params: { sessionId: string } }) {
+interface ReportPageProps {
+  params: {
+    sessionId: string;
+  };
+}
+
+export default function ReportPage({ params }: ReportPageProps) {
   const { sessionId } = params;
   const [session, setSession] = useState<SessionReport | null>(null);
   const [isLoading, setIsLoading] = useState(true);
